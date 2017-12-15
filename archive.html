@@ -1,0 +1,628 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- 使用url函数转换相关路径 -->
+    <!--<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext"/>-->
+    <link rel="stylesheet" type="text/css" href="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+    <link rel="stylesheet" type="text/css" href="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0"/>
+    <link rel="stylesheet" type="text/css" href="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/css/main.css?v=1.2.1"/>
+    <script type="text/javascript" id="hexo.configuration">
+    var CONFIG = {
+        scheme: 'Mist',
+        motion: true,
+        sidebar: 'always'
+    };
+    </script>
+    <title>归档 - Yuri2's Blog</title>
+
+        <!-- 通过自有函数输出HTML头部信息 -->
+        <meta name="description" content="归档" />
+<meta name="generator" content="Typecho 1.0/14.10.10" />
+<meta name="template" content="typecho-theme-next-master" />
+<link rel="pingback" href="https://yuri2.cn/blog/action/xmlrpc" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://yuri2.cn/blog/action/xmlrpc?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://yuri2.cn/blog/action/xmlrpc?wlw" />
+<script type="text/javascript">
+(function () {
+    window.TypechoComment = {
+        dom : function (id) {
+            return document.getElementById(id);
+        },
+    
+        create : function (tag, attr) {
+            var el = document.createElement(tag);
+        
+            for (var key in attr) {
+                el.setAttribute(key, attr[key]);
+            }
+        
+            return el;
+        },
+
+        reply : function (cid, coid) {
+            var comment = this.dom(cid), parent = comment.parentNode,
+                response = this.dom('respond-page-6'), input = this.dom('comment-parent'),
+                form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0],
+                textarea = response.getElementsByTagName('textarea')[0];
+
+            if (null == input) {
+                input = this.create('input', {
+                    'type' : 'hidden',
+                    'name' : 'parent',
+                    'id'   : 'comment-parent'
+                });
+
+                form.appendChild(input);
+            }
+
+            input.setAttribute('value', coid);
+
+            if (null == this.dom('comment-form-place-holder')) {
+                var holder = this.create('div', {
+                    'id' : 'comment-form-place-holder'
+                });
+
+                response.parentNode.insertBefore(holder, response);
+            }
+
+            comment.appendChild(response);
+            this.dom('cancel-comment-reply-link').style.display = '';
+
+            if (null != textarea && 'text' == textarea.name) {
+                textarea.focus();
+            }
+
+            return false;
+        },
+
+        cancelReply : function () {
+            var response = this.dom('respond-page-6'),
+            holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent');
+
+            if (null != input) {
+                input.parentNode.removeChild(input);
+            }
+
+            if (null == holder) {
+                return true;
+            }
+
+            this.dom('cancel-comment-reply-link').style.display = 'none';
+            holder.parentNode.insertBefore(response, holder);
+            return false;
+        }
+    };
+})();
+</script>
+<script type="text/javascript">
+(function () {
+    var event = document.addEventListener ? {
+        add: 'addEventListener',
+        focus: 'focus',
+        load: 'DOMContentLoaded'
+    } : {
+        add: 'attachEvent',
+        focus: 'onfocus',
+        load: 'onload'
+    };
+
+    document[event.add](event.load, function () {
+        var r = document.getElementById('respond-page-6');
+
+        if (null != r) {
+            var forms = r.getElementsByTagName('form');
+            if (forms.length > 0) {
+                var f = forms[0], textarea = f.getElementsByTagName('textarea')[0], added = false;
+
+                if (null != textarea && 'text' == textarea.name) {
+                    textarea[event.add](event.focus, function () {
+                        if (!added) {
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = '_';
+                            input.value = (function () {
+    var _nkEYt = 'db1'//'N'
++'ff9'//'1AD'
++'85'//'URo'
++//'0Z'
+'b'+//'3U0'
+'4'+//'7'
+'9'+'ffc'//'JaO'
++//'y'
+'7'+//'X'
+'938'+//'CB'
+'f'+//'m'
+'3e4'+//'FCI'
+'986'+//'8'
+'7e'+//'KG'
+'51'+'960'//'m'
+, _lH7w = [];
+    
+    for (var i = 0; i < _lH7w.length; i ++) {
+        _nkEYt = _nkEYt.substring(0, _lH7w[i][0]) + _nkEYt.substring(_lH7w[i][1]);
+    }
+
+    return _nkEYt;
+})();
+
+                            f.appendChild(input);
+                            added = true;
+                        }
+                    });
+                }
+            }
+        }
+    });
+})();
+</script>
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f16874d6b618e4ad4099ffa4f016692e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--百度统计-->
+
+    </head>
+
+    <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <div class="container one-column page-archive">
+  <!--page home-->
+  <div class="headband"></div>
+
+  <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+          <span class="logo-line-before"><i></i></span>
+          <a href="https://yuri2.cn/blog/" class="brand" rel="start">
+              <span class="logo">
+                <i class="icon-next-logo"></i>
+            </span>
+            <span class="site-title">Yuri2's Blog</span>
+        </a>
+        <span class="logo-line-after"><i></i></span>
+    </h1>
+
+    <div class="site-nav-toggle">
+      <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<nav class="site-nav">    <ul id="menu" class="menu menu-left">
+        <li class="menu-item menu-item-home">
+          <a href="https://yuri2.cn/blog/" rel="section">
+            <i class="menu-item-icon"></i> <br />
+            首页
+        </a>
+    </li>
+            <li class="menu-item menu-item-home">
+        <a href="https://yuri2.cn/blog/categories.html" rel="section">分类</a>
+    </li>
+    <li class="menu-item menu-item-home">
+        <a href="https://yuri2.cn/blog/archive.html" rel="section">归档</a>
+    </li>
+    <li class="menu-item menu-item-home">
+        <a href="https://yuri2.cn/blog/board.html" rel="section">留言</a>
+    </li>
+    <li class="menu-item menu-item-home">
+        <a href="https://yuri2.cn/blog/about-me.html" rel="section">关于</a>
+    </li>
+</ul>
+
+   <div class="site-search">     
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" name="s" class="st-search-input st-default-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" value=""/>
+  </form>
+
+    </div>
+</nav>
+</div>
+</header>
+
+   
+<main id="main" class="main">
+  <div class="main-inner">
+    <div id="content" class="content">
+ <section id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
+
+<span class="archive-page-counter">       
+      好! 目前共计 19 篇日志。 继续努力。
+    </span>
+<div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+        </div>
+        <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/102.html" itemprop="url">
+                <span itemprop="name">mssql 弹坑记录</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-11-27T14:14:00+08:00" content="1717-11-27">
+            11-27
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/100.html" itemprop="url">
+                <span itemprop="name">NodeJs 多核多进程并行框架</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-11-07T15:13:00+08:00" content="1717-11-07">
+            11-07
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/98.html" itemprop="url">
+                <span itemprop="name">MongoDB 学习笔记</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-10-27T13:21:00+08:00" content="1717-10-27">
+            10-27
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/94.html" itemprop="url">
+                <span itemprop="name">Node.js 弹坑记录</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-09-29T10:11:00+08:00" content="1717-09-29">
+            09-29
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/game/85.html" itemprop="url">
+                <span itemprop="name">从“吃鸡”中体验“黑暗森林”</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-09-11T09:42:00+08:00" content="1717-09-11">
+            09-11
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/essay/83.html" itemprop="url">
+                <span itemprop="name">关于开源软件维护者的一些思考</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-09-01T14:48:00+08:00" content="1717-09-01">
+            09-01
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/works/77.html" itemprop="url">
+                <span itemprop="name">Win10-UI正式发布</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-07-19T13:29:00+08:00" content="1717-07-19">
+            07-19
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/72.html" itemprop="url">
+                <span itemprop="name">初探 WebSocket</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-06-15T15:38:00+08:00" content="1717-06-15">
+            06-15
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/64.html" itemprop="url">
+                <span itemprop="name">定时任务的实现方案</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-06-14T16:27:00+08:00" content="1717-06-14">
+            06-14
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/62.html" itemprop="url">
+                <span itemprop="name">有趣的小玩意集合</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-06-07T14:05:00+08:00" content="1717-06-07">
+            06-07
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/60.html" itemprop="url">
+                <span itemprop="name">LOCK_NB 在 windows环境下的表现</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-05-22T16:40:14+08:00" content="1717-05-22">
+            05-22
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/56.html" itemprop="url">
+                <span itemprop="name">Ueditor 1.4.3.3 uparse.js 全局样式污染 bug 解决方案</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-05-15T11:24:00+08:00" content="1717-05-15">
+            05-15
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/49.html" itemprop="url">
+                <span itemprop="name">关于高并发下请求第三方API情景的思考和优化方案</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-05-04T09:56:00+08:00" content="1717-05-04">
+            05-04
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/coding/48.html" itemprop="url">
+                <span itemprop="name">sqlsrv的分页代码</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-04-11T15:31:00+08:00" content="1717-04-11">
+            04-11
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/game/42.html" itemprop="url">
+                <span itemprop="name">代码魅力之超精简的js俄罗斯方块</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-03-20T00:04:00+08:00" content="1717-03-20">
+            03-20
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/39.html" itemprop="url">
+                <span itemprop="name">php连接sqlsrv</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-03-14T09:08:00+08:00" content="1717-03-14">
+            03-14
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/php/37.html" itemprop="url">
+                <span itemprop="name">关于生成随机顺序数列的思考</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-03-08T11:03:00+08:00" content="1717-03-08">
+            03-08
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/essay/36.html" itemprop="url">
+                <span itemprop="name">尤里2号的博客小屋开张啦！</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-02-28T20:58:08+08:00" content="1717-02-28">
+            02-28
+          </time>
+      </div>
+    </header>
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+            <a class="post-title-link" href="https://yuri2.cn/blog/movie/14.html" itemprop="url">
+                <span itemprop="name">为什么《终结者2》 是“终结者”电影系列最好的一部？</span>
+            </a>
+      </h1>
+      <div class="post-meta">
+      <time class="post-time" itemprop="dateCreated" datetime="2017-02-22T09:11:00+08:00" content="1717-02-22">
+            02-22
+          </time>
+      </div>
+    </header>
+  </article>
+  </section>
+</div>
+</div>
+<div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="//cdn.v2ex.com/gravatar/4fe79480f97c34ae1d7299f733f13b3e?s=160&d=mm&r=g" alt="尤里2号" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">尤里2号</p>
+      </div>
+      <p class="site-description motion-element" itemprop="description">给岁月以文明,而不是给文明以岁月</p>
+      <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="https://yuri2.cn/blog/archive.html">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+          </a>
+      </div>
+
+      <div class="site-state-item site-state-categories">
+        <a href="https://yuri2.cn/blog/categories.html">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">分类</span>
+</a>
+      </div>
+
+      <div class="site-state-item site-state-tags">
+          <a href="https://yuri2.cn/blog/tags.html">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+          </a>
+      </div>
+</nav>
+          <div class="feed-link motion-element">
+            <a href="https://yuri2.cn/blog/feed/" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+<div class="links-of-author motion-element">
+</div>
+  
+<div class="links-of-author motion-element">
+    <p class="" style="margin-bottom: 12px;"><strong>友情链接</strong></p>
+    <span class="links-of-author-item"><a href="http://www.imhan.com" title="寒泥 - Typecho插件开发者" target="_blank">Hanny's Blog</a></span><span class="links-of-author-item"><a href="http://he110.top" title="" target="_blank">He110's Blog</a></span><span class="links-of-author-item"><a href="http://waaili.cc" title="" target="_blank">小黑屋的博客</a></span><span class="links-of-author-item"><a href="http://www.lovefc.cn/" title="" target="_blank">封尘博客</a></span><span class="links-of-author-item"><a href="http://www.php20.cn" title="" target="_blank">仙士可博客</a></span><span class="links-of-author-item"><a href="http://www.hfinal.com/" title="" target="_blank">HongSir个人博客</a></span></div>
+    </section>
+   
+</div>
+</aside>
+
+</main>
+<footer id="footer" class="footer">
+    <div class="footer-inner">
+        <div class="copyright" >
+            &copy;
+            <span itemprop="copyrightYear">2017</span>
+            <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+            <span class="author" itemprop="copyrightHolder"><a href="https://yuri2.cn/blog/">尤里2号</a></span>
+        </div>
+
+        <div class="powered-by">
+            无知和弱小不是生存的障碍
+        </div>
+
+        <div class="theme-info">
+            傲慢才是
+        </div>
+    </div>
+</footer>
+<div class="back-to-top"></div>
+</div>
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/js/helpers.js?v=0.4.5.2"></script>
+
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+
+    <script type="text/javascript" id="motion.page.archive">
+        $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/js/lazyload.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#posts").find('img').lazyload({
+            placeholder: "https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+<script type="text/javascript" src="https://yuri2.cn/blog/usr/themes/typecho-theme-next-master/js/bootstrap.js?v=0.4.5.2"></script>
+
+
+</body>
+</html>
