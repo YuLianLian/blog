@@ -18,7 +18,7 @@
 	<!-- ckeditor 核心 JavaScript 文件 -->
 	<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
     <!-- 自定义的主要 CSS 文件 -->
-    <link rel="stylesheet" href="css/main.css" /></head>
+    <link rel="stylesheet" href="../../css/main.css" /></head>
   
   <body>
     <div class="container-fluid">
@@ -29,7 +29,7 @@
               <span class="logo-line-before">
                 <i class="" style="transform: translateX(100%);"></i>
               </span>
-              <a href="index.html" class="brand" rel="start" style="opacity: 1;">
+              <a href="../../index.html" class="brand" rel="start" style="opacity: 1;">
                 <span class="logo">
                   <i class="icon-next-logo"></i>
                 </span>
@@ -48,9 +48,9 @@
             <nav class="site-nav">
               <ul id="menu" class="menu menu-left">
                 <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
-                  <a href="index.html" rel="section">首页</a></li>
+                  <a href="../../index.html" rel="section">首页</a></li>
                 <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
-                  <a href="about.html" rel="section">关于</a></li>
+                  <a href="../../about.html" rel="section">关于</a></li>
               </ul>
               <div class="site-search">
                 <form class="site-search-form">
@@ -82,61 +82,49 @@
         <div class="col-md-9">
           <article class="article-main">
             <div class="panel panel-default">
-				  <div class="panel-heading">
-					<div class="meta">
-					  <span class="tooltipped tooltipped-n" aria-label="创建日期">
-						<a rel="bookmark" href="#">
-						  <h3>Git操作异常：无法ping通github.com</h3></a>
-					  </span>
-					</div>
+              <div class="panel-heading">
+                <div class="meta">
+                  <span class="tooltipped tooltipped-n" aria-label="创建日期">
+                    <a rel="bookmark" href="#">
+                      <h3>Git操作异常：无法ping通github.com</h3></a>
+                  </span>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div>
+                  <div>
+                    <h4><span>问题:</span></h4>
+                    <div>Ping不通 github.com</div>
 				  </div>
-				  <div class="panel-body">
-					<div>
-						 <p>
-							ssh: Could not resolve hostname github.com: Non-recoverable failure in name resolution</br>
-							fatal: Could not read from remote repository.
-						 <p>
-					</div>
-					<div class="read-more">
-					  <a href="html/articles/201712160024.html">
-						<span class="left">阅读更多</span>
-						<span class="read-more-icon"></span>
-						<span class="clear"></span>
-					  </a>
-					  <div class="clear"></div>
-					</div>
+                  <div>
+						<h4><span>描述:</span></h4>
+						<div>
+							<p> $ git push -u origin master </br>
+								ssh: Could not resolve hostname github.com: Non-recoverable failure in name resolution</br>
+								fatal: Could not read from remote repository.
+							<p>
+						</div>
 				  </div>
-			  </div>
+                  <div>
+						<h4><span>解决办法:</span></h4>
+						<div>
+							<p>
+							   打开文件 C:\Windows\System32\drivers\etc\hosts 进行编辑，将以下内容添加的hosts文件里面 </br>
+							   192.30.253.113 github.com </br>
+							   192.30.252.131 github.com </br>
+							   185.31.16.185 github.global.ssl.fastly.net </br>
+							   74.125.237.1 dl-ssl.google.com </br>
+							   173.194.127.200 groups.google.com </br>
+							   192.30.252.131 github.com </br>
+							   185.31.16.185 github.global.ssl.fastly.net </br>
+							   74.125.128.95 ajax.googleapis.com
+							</p>
+						</div>
+					</div>
+                </div>
+              </div>
           </article>
-		  <article class="article-main">
-				<div class="panel panel-default">
-				  <div class="panel-heading">
-					<div class="meta">
-					  <span class="tooltipped tooltipped-n" aria-label="创建日期">
-						<a rel="bookmark" href="#">
-						  <h3>Java工具类：数据签名/验证、数据加密/解密</h3></a>
-					  </span>
-					</div>
-				  </div>
-				  <div class="panel-body">
-					<div>
-						<p>
-							在数据传输中，数据签名与签名校验用于防止在传输过程被篡改，校验其数据的完整性</br>
-							加密/解密用于防止泄密，进行加密传输处理，该工具类提供了非对称加密算法的数据签名</br>
-							与对称性的数据加密方法.
-						<p>
-					</div>
-					<div class="read-more">
-					  <a href="html/articles/201712161057.html">
-						<span class="left">阅读更多</span>
-						<span class="read-more-icon"></span>
-						<span class="clear"></span>
-					  </a>
-					  <div class="clear"></div>
-					</div>
-				  </div>
-			  </div>
-          </article>
+          </div>
         </div>
       </div>
       <div class="row" style="opacity: 1; display: block; transform: translateX(0px);text-align: center;">

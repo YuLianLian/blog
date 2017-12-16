@@ -15,8 +15,10 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- ckeditor 核心 JavaScript 文件 -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
     <!-- 自定义的主要 CSS 文件 -->
-    <link rel="stylesheet" href="css/main.css" /></head>
+    <link rel="stylesheet" href="../../css/main.css" /></head>
   
   <body>
     <div class="container-fluid">
@@ -27,7 +29,7 @@
               <span class="logo-line-before">
                 <i class="" style="transform: translateX(100%);"></i>
               </span>
-              <a href="index.html" class="brand" rel="start" style="opacity: 1;">
+              <a href="../../index.html" class="brand" rel="start" style="opacity: 1;">
                 <span class="logo">
                   <i class="icon-next-logo"></i>
                 </span>
@@ -46,9 +48,9 @@
             <nav class="site-nav">
               <ul id="menu" class="menu menu-left">
                 <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
-                  <a href="index.html" rel="section">首页</a></li>
+                  <a href="../../index.html" rel="section">首页</a></li>
                 <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
-                  <a href="about.html" rel="section">关于</a></li>
+                  <a href="../../about.html" rel="section">关于</a></li>
               </ul>
               <div class="site-search">
                 <form class="site-search-form">
@@ -84,21 +86,309 @@
                 <div class="meta">
                   <span class="tooltipped tooltipped-n" aria-label="创建日期">
                     <a rel="bookmark" href="#">
-                      <h3>Git操作异常：无法ping通github.com</h3></a>
+                      <h3>Java工具类：数据签名/验证、数据加密/解密</h3></a>
                   </span>
                 </div>
               </div>
               <div class="panel-body">
                 <div>
-                  <div>
-                    <h4>问题:</h4>
-                    <div>Ping不通 github.com</div></div>
-                  <div>
-                    <h4>描述:</h4>
-                    <div>$ git push -u origin master ssh: Could not resolve hostname github.com: Non-recoverable failure in name resolution fatal: Could not read from remote repository.</div></div>
-                  <div>
-                    <h4>解决办法:</h4>
-                    <div>打开文件 C:\Windows\System32\drivers\etc\hosts 进行编辑，将一面内容添加的hosts文件里面 192.30.253.113 github.com 192.30.252.131 github.com 185.31.16.185 github.global.ssl.fastly.net 74.125.237.1 dl-ssl.google.com 173.194.127.200 groups.google.com 192.30.252.131 github.com 185.31.16.185 github.global.ssl.fastly.net 74.125.128.95 ajax.googleapis.com</div></div>
+				    <div>
+						<h4><span>签名公私秘钥枚举key类:</span></h4>
+						<div>
+							<p>
+								/**</br>
+								 * <一句话功能简述></br>
+								 * <功能详细描述></br>
+								 * </br>
+								 * @author  Administrator</br>
+								 * @see  [相关类/方法]</br>
+								 * @since  [产品/模块版本]</br>
+								 */</br>
+								public enum SecurityKey{</br>
+									PUBLICKEY,PRIVATEKEY;</br>
+								}</br>
+							</p>
+						</div>
+					</div>
+					<div>
+						<h4><span>签名公私秘钥枚举key类:</span></h4>
+						<div>
+								<p>
+									import java.io.UnsupportedEncodingException;</br>
+									import java.security.InvalidKeyException;</br>
+									import java.security.KeyFactory;</br>
+									import java.security.KeyPair;</br>
+									import java.security.KeyPairGenerator;</br>
+									import java.security.MessageDigest;</br>
+									import java.security.NoSuchAlgorithmException;</br>
+									import java.security.NoSuchProviderException;</br>
+									import java.security.PrivateKey;</br>
+									import java.security.PublicKey;</br>
+									import java.security.Signature;</br>
+									import java.security.SignatureException;</br>
+									import java.security.spec.InvalidKeySpecException;</br>
+									import java.security.spec.PKCS8EncodedKeySpec;</br>
+									import java.security.spec.X509EncodedKeySpec;</br>
+									import java.util.EnumMap;</br>
+
+									import javax.crypto.BadPaddingException;</br>
+									import javax.crypto.Cipher;</br>
+									import javax.crypto.IllegalBlockSizeException;</br>
+									import javax.crypto.KeyGenerator;</br>
+									import javax.crypto.NoSuchPaddingException;</br>
+									import javax.crypto.SecretKey;</br>
+									import javax.crypto.spec.SecretKeySpec;</br>
+
+
+									/**</br>
+									 * <一句话功能简述></br>
+									 * <功能详细描述></br>
+									 * </br>
+									 * @author  Administrator</br>
+									 * @see  [相关类/方法]</br>
+									 * @since  [产品/模块版本]</br>
+									 */</br>
+									public final class SecurityUtils{</br>
+										/**</br>
+										 * 对称加解密算法名称</br>
+										 */</br>
+										public static final String SYMMETRIC_ENC_DEC_ALGORITHM = "AES";</br>
+										/**</br>
+										 * 非对称加解密算法名称</br>
+										 */</br>
+										public static final String ASYMMETRY_ENC_DEC_ALGORITHM = "RSA";</br>
+										/**</br>
+										 * 数字签名算法名称</br>
+										 */</br>
+										public static final String ASYMMETRY_ALGORITHM = "SHA1withRSA";</br> 
+										/**</br>
+										 * MD5算法名称</br>
+										 */</br>
+										public static final String MD5_ALGORITHM="MD5";</br>
+										/**</br>
+										 * 十六进制的字符</br>
+										 */</br>
+										public static final char HEX_DIGITS[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9','A', 'B', 'C', 'D', 'E', 'F' };</br>
+										
+										/**</br>
+										 * 密钥长度必须是64的整数倍，范围在512~1024之间</br>
+										*/</br>
+										private static final int KEY_SIZE = 1024;</br>
+										
+										public static EnumMap<SecurityKey, String> generatorAsymmetrySecurityKey() throws NoSuchAlgorithmException, NoSuchProviderException {
+											EnumMap<SecurityKey,String> securityKeys = new EnumMap<SecurityKey, String>(SecurityKey.class);</br>
+											KeyPair keyPair = generatorKeyPair();</br>
+											String privateKey = CommonUtils.bytesToHexString(keyPair.getPrivate().getEncoded());</br>
+											String publicKey = CommonUtils.bytesToHexString(keyPair.getPublic().getEncoded());</br>
+											securityKeys.put(SecurityKey.PRIVATEKEY,privateKey);</br>
+											securityKeys.put(SecurityKey.PUBLICKEY,publicKey);</br>
+											return securityKeys;</br>
+										}</br>
+										public static String generatorSecurityKey() throws NoSuchAlgorithmException {</br>
+											//实例化支持DES算法的密钥生成器(算法名称命名需按规定，否则抛出异常)  </br>
+											KeyGenerator keygen = KeyGenerator.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br>  
+											//生成密钥  </br>
+											SecretKey secretKey = keygen.generateKey();</br>  
+											return CommonUtils.bytesToHexString(secretKey.getEncoded());</br>
+										}</br>
+										
+										public static String encrypt(String secretKey,String data) throws IllegalBlockSizeException, BadPaddingException, InvalidKeySpecException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {</br>
+											//加密工具  </br>
+											Cipher cipher =Cipher.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br> 
+											SecretKeySpec secretKeySpec = new SecretKeySpec(CommonUtils.hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
+											cipher.init(Cipher.ENCRYPT_MODE,secretKeySpec);</br>  
+											byte[] cipherResult = cipher.doFinal(data.getBytes("UTF-8"));</br>  
+											return CommonUtils.bytesToHexString(cipherResult);</br>
+										}</br>
+										
+										public static String decrypt(String secretKey,String encryptData) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {</br>
+											//加密工具</br>
+											SecretKeySpec secretKeySpec = new SecretKeySpec(CommonUtils.hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
+											byte[] data = CommonUtils.hexStringToBytes(encryptData);</br>
+											Cipher cipher =Cipher.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br>  
+											cipher.init(Cipher.DECRYPT_MODE,secretKeySpec);</br>  
+											byte[] cipherResult = cipher.doFinal(data);</br> 
+											return new String(cipherResult,"UTF-8");</br>
+										}</br>
+										
+										/**
+										 * 非对称加密，返回16进制字符串</br>
+										 * @param privateKey</br>
+										 * @param data</br>
+										 * @return</br>
+										 * @throws IllegalBlockSizeException</br>
+										 * @throws BadPaddingException</br>
+										 * @throws InvalidKeySpecException</br>
+										 * @throws InvalidKeyException</br>
+										 * @throws NoSuchAlgorithmException</br>
+										 * @throws NoSuchPaddingException</br>
+										 * @throws UnsupportedEncodingException [参数说明]</br>
+										 * </br>
+										 * @return String [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										public static String asymmetryEncrypt(String privateKey,String data) throws IllegalBlockSizeException, BadPaddingException, InvalidKeySpecException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {</br>
+											//加密工具  </br>
+											Cipher cipher =Cipher.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>  
+											PrivateKey privateKeyPair = getPrivateKeyPair(privateKey);</br>
+											cipher.init(Cipher.ENCRYPT_MODE,privateKeyPair);</br>  
+											byte[] cipherResult = cipher.doFinal(data.getBytes("UTF-8"));</br>  
+											return CommonUtils.bytesToHexString(cipherResult);</br>
+										}</br>
+										
+										/**</br>
+										 * 非对称解密</br>
+										 * @param publicKey</br>
+										 * @param encryptData  非对称加密数据字节转16进制的字符串</br>
+										 * @return</br>
+										 * @throws NoSuchAlgorithmException</br>
+										 * @throws NoSuchPaddingException</br>
+										 * @throws InvalidKeyException</br>
+										 * @throws InvalidKeySpecException</br>
+										 * @throws IllegalBlockSizeException</br>
+										 * @throws BadPaddingException</br>
+										 * @throws UnsupportedEncodingException [参数说明]</br>
+										 * </br>
+										 * @return String [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										public static String asymmetryDecrypt(String publicKey,String encryptData) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {</br>
+											//加密工具</br>
+											byte[] data = CommonUtils.hexStringToBytes(encryptData);</br>
+											Cipher cipher =Cipher.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>  
+											PublicKey publicKeyPair = getPublicKeyPair(publicKey);</br>
+											cipher.init(Cipher.DECRYPT_MODE,publicKeyPair);</br>  
+											byte[] cipherResult = cipher.doFinal(data);</br> 
+											return new String(cipherResult,"UTF-8");</br>
+										}</br>
+
+										/**</br>
+										 * 非对称数据签名</br>
+										 * @param data</br>
+										 * @param key</br>
+										 * @return</br>
+										 * @throws InvalidKeyException</br>
+										 * @throws NoSuchAlgorithmException</br>
+										 * @throws UnsupportedEncodingException [参数说明]</br>
+										 * </br>
+										 * @return String [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										public static String signature(String privateKey,String data) throws Exception {</br>
+											PrivateKey privateKeyPair = getPrivateKeyPair(privateKey);</br>
+											Signature signature = Signature.getInstance(ASYMMETRY_ALGORITHM);</br>
+											signature.initSign(privateKeyPair);</br>
+											String msgDigest = messageMD5Digest(data);</br>
+											signature.update(msgDigest.getBytes("UTF-8"));</br>
+											byte[] signatureResult = signature.sign();</br>
+											return CommonUtils.bytesToHexString(signatureResult);</br>
+										}</br>
+										
+										/**</br>
+										 * 非对称签名验证</br>
+										 * @param data</br>
+										 * @param publicKey</br>
+										 * @param signatureIn</br>
+										 * @return</br>
+										 * @throws Exception [参数说明]</br>
+										 * </br>
+										 * @return boolean [返回类型说明]</br>
+										 * @throws InvalidKeySpecException </br>
+										 * @throws NoSuchAlgorithmException </br>
+										 * @throws InvalidKeyException </br>
+										 * @throws SignatureException </br>
+										 * @throws UnsupportedEncodingException </br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										public static boolean verifySignature(String publicKey,String data,String signatureIn) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException, UnsupportedEncodingException {</br>
+											PublicKey publicKeyPair = getPublicKeyPair(publicKey);</br>
+											Signature signature = Signature.getInstance(ASYMMETRY_ALGORITHM);</br>
+											signature.initVerify(publicKeyPair);</br>
+											String msgDigest = messageMD5Digest(data);</br>
+											signature.update(msgDigest.getBytes("UTF-8"));</br>
+											return signature.verify(CommonUtils.hexStringToBytes(signatureIn));</br>
+										}</br>
+										
+										/**</br>
+										 * <一句话功能简述></br>
+										 * <功能详细描述></br>
+										 * @param source</br>
+										 * @return</br>
+										 * @throws NoSuchAlgorithmException [参数说明]</br>
+										 * </br>
+										 * @return String [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										public final static String messageMD5Digest(String source)  throws  NoSuchAlgorithmException {</br>
+													byte[] btInput = source.getBytes();</br>
+													// 获得MD5摘要算法的 MessageDigest 对象
+													MessageDigest mdInst = MessageDigest.getInstance(MD5_ALGORITHM);</br>
+													// 使用指定的字节更新摘要
+													mdInst.update(btInput);</br>
+													// 获得密文
+													byte[] md5 = mdInst.digest();</br>
+													// 把密文转换成十六进制的字符串形式
+													return CommonUtils.bytesToHexString(md5);</br>
+										}</br>
+
+										/** <一句话功能简述></br>
+										 * <功能详细描述></br>
+										 * @param privateKey</br>
+										 * @return</br>
+										 * @throws NoSuchAlgorithmException</br>
+										 * @throws InvalidKeySpecException [参数说明]</br>
+										 * </br>
+										 * @return PrivateKey [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										private static PrivateKey getPrivateKeyPair(String privateKey)</br>
+												throws NoSuchAlgorithmException, InvalidKeySpecException</br>
+										{</br>
+											PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(CommonUtils.hexStringToBytes(privateKey));</br>
+											KeyFactory keyFactory = KeyFactory.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>
+											PrivateKey privateKeyPair =keyFactory.generatePrivate(keySpec);</br>
+											return privateKeyPair;</br>
+										}</br>
+										
+										/** <一句话功能简述></br>
+										 * <功能详细描述></br>
+										 * @param publicKey</br>
+										 * @return</br>
+										 * @throws NoSuchAlgorithmException</br>
+										 * @throws InvalidKeySpecException [参数说明]</br>
+										 * </br>
+										 * @return PublicKey [返回类型说明]</br>
+										 * @exception throws [违例类型] [违例说明]</br>
+										 * @see [类、类#方法、类#成员]</br>
+										 */</br>
+										private static PublicKey getPublicKeyPair(String publicKey)</br>
+												throws NoSuchAlgorithmException, InvalidKeySpecException</br>
+										{</br>
+											X509EncodedKeySpec keySpec = new X509EncodedKeySpec(CommonUtils.hexStringToBytes(publicKey));</br>
+											KeyFactory keyFactory = KeyFactory.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>
+											PublicKey publicKeyPair =keyFactory.generatePublic(keySpec);</br>
+											return publicKeyPair;</br>
+										}</br>
+										
+										private static KeyPair generatorKeyPair() throws NoSuchAlgorithmException, NoSuchProviderException {</br>
+											// 初始化密钥对生成器
+											KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>
+											// 实例化密钥对生成器
+											keyPairGen.initialize(KEY_SIZE);</br>
+											// 实例化密钥对
+											return keyPairGen.genKeyPair();</br>
+									   }</br>
+									}</br>
+								</p>
+							
+						</div>
+					</div>
                 </div>
               </div>
           </article>
