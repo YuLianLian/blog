@@ -96,8 +96,8 @@
 							public static EnumMap<SecurityKey, String> generatorAsymmetrySecurityKey() throws NoSuchAlgorithmException, NoSuchProviderException {
 								EnumMap<SecurityKey,String> securityKeys = new EnumMap<SecurityKey, String>(SecurityKey.class);</br>
 								KeyPair keyPair = generatorKeyPair();</br>
-								String privateKey = CommonUtils.bytesToHexString(keyPair.getPrivate().getEncoded());</br>
-								String publicKey = CommonUtils.bytesToHexString(keyPair.getPublic().getEncoded());</br>
+								String privateKey = bytesToHexString(keyPair.getPrivate().getEncoded());</br>
+								String publicKey = bytesToHexString(keyPair.getPublic().getEncoded());</br>
 								securityKeys.put(SecurityKey.PRIVATEKEY,privateKey);</br>
 								securityKeys.put(SecurityKey.PUBLICKEY,publicKey);</br>
 								return securityKeys;</br>
@@ -107,22 +107,22 @@
 								KeyGenerator keygen = KeyGenerator.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br>  
 								//生成密钥  </br>
 								SecretKey secretKey = keygen.generateKey();</br>  
-								return CommonUtils.bytesToHexString(secretKey.getEncoded());</br>
+								return bytesToHexString(secretKey.getEncoded());</br>
 							}</br>
 							
 							public static String encrypt(String secretKey,String data) throws IllegalBlockSizeException, BadPaddingException, InvalidKeySpecException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {</br>
 								//加密工具  </br>
 								Cipher cipher =Cipher.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br> 
-								SecretKeySpec secretKeySpec = new SecretKeySpec(CommonUtils.hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
+								SecretKeySpec secretKeySpec = new SecretKeySpec(hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
 								cipher.init(Cipher.ENCRYPT_MODE,secretKeySpec);</br>  
 								byte[] cipherResult = cipher.doFinal(data.getBytes("UTF-8"));</br>  
-								return CommonUtils.bytesToHexString(cipherResult);</br>
+								return bytesToHexString(cipherResult);</br>
 							}</br>
 							
 							public static String decrypt(String secretKey,String encryptData) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {</br>
 								//加密工具</br>
-								SecretKeySpec secretKeySpec = new SecretKeySpec(CommonUtils.hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
-								byte[] data = CommonUtils.hexStringToBytes(encryptData);</br>
+								SecretKeySpec secretKeySpec = new SecretKeySpec(hexStringToBytes(secretKey),SYMMETRIC_ENC_DEC_ALGORITHM);</br>
+								byte[] data = hexStringToBytes(encryptData);</br>
 								Cipher cipher =Cipher.getInstance(SYMMETRIC_ENC_DEC_ALGORITHM);</br>  
 								cipher.init(Cipher.DECRYPT_MODE,secretKeySpec);</br>  
 								byte[] cipherResult = cipher.doFinal(data);</br> 
@@ -152,7 +152,7 @@
 								PrivateKey privateKeyPair = getPrivateKeyPair(privateKey);</br>
 								cipher.init(Cipher.ENCRYPT_MODE,privateKeyPair);</br>  
 								byte[] cipherResult = cipher.doFinal(data.getBytes("UTF-8"));</br>  
-								return CommonUtils.bytesToHexString(cipherResult);</br>
+								return bytesToHexString(cipherResult);</br>
 							}</br>
 							
 							/**</br>
@@ -174,7 +174,7 @@
 							 */</br>
 							public static String asymmetryDecrypt(String publicKey,String encryptData) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {</br>
 								//加密工具</br>
-								byte[] data = CommonUtils.hexStringToBytes(encryptData);</br>
+								byte[] data = hexStringToBytes(encryptData);</br>
 								Cipher cipher =Cipher.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>  
 								PublicKey publicKeyPair = getPublicKeyPair(publicKey);</br>
 								cipher.init(Cipher.DECRYPT_MODE,publicKeyPair);</br>  
@@ -202,7 +202,7 @@
 								String msgDigest = messageMD5Digest(data);</br>
 								signature.update(msgDigest.getBytes("UTF-8"));</br>
 								byte[] signatureResult = signature.sign();</br>
-								return CommonUtils.bytesToHexString(signatureResult);</br>
+								return bytesToHexString(signatureResult);</br>
 							}</br>
 							
 							/**</br>
@@ -228,7 +228,7 @@
 								signature.initVerify(publicKeyPair);</br>
 								String msgDigest = messageMD5Digest(data);</br>
 								signature.update(msgDigest.getBytes("UTF-8"));</br>
-								return signature.verify(CommonUtils.hexStringToBytes(signatureIn));</br>
+								return signature.verify(hexStringToBytes(signatureIn));</br>
 							}</br>
 							
 							/**</br>
@@ -251,7 +251,7 @@
 										// 获得密文
 										byte[] md5 = mdInst.digest();</br>
 										// 把密文转换成十六进制的字符串形式
-										return CommonUtils.bytesToHexString(md5);</br>
+										return bytesToHexString(md5);</br>
 							}</br>
 
 							/** <一句话功能简述></br>
@@ -268,7 +268,7 @@
 							private static PrivateKey getPrivateKeyPair(String privateKey)</br>
 									throws NoSuchAlgorithmException, InvalidKeySpecException</br>
 							{</br>
-								PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(CommonUtils.hexStringToBytes(privateKey));</br>
+								PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(hexStringToBytes(privateKey));</br>
 								KeyFactory keyFactory = KeyFactory.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>
 								PrivateKey privateKeyPair =keyFactory.generatePrivate(keySpec);</br>
 								return privateKeyPair;</br>
@@ -288,7 +288,7 @@
 							private static PublicKey getPublicKeyPair(String publicKey)</br>
 									throws NoSuchAlgorithmException, InvalidKeySpecException</br>
 							{</br>
-								X509EncodedKeySpec keySpec = new X509EncodedKeySpec(CommonUtils.hexStringToBytes(publicKey));</br>
+								X509EncodedKeySpec keySpec = new X509EncodedKeySpec(hexStringToBytes(publicKey));</br>
 								KeyFactory keyFactory = KeyFactory.getInstance(ASYMMETRY_ENC_DEC_ALGORITHM);</br>
 								PublicKey publicKeyPair =keyFactory.generatePublic(keySpec);</br>
 								return publicKeyPair;</br>
@@ -302,6 +302,34 @@
 								// 实例化密钥对
 								return keyPairGen.genKeyPair();</br>
 						   }</br>
+						   
+						     /**
+							 * 转换成16进制字符串为字节数组</br>
+							 * @param hexString</br>
+							 * @return [参数说明]</br>
+							 * 
+							 * @return byte[] [返回类型说明]</br>
+							 * @exception throws [违例类型] [违例说明]</br>
+							 * @see [类、类#方法、类#成员]</br>
+							 */</br>
+							public static byte[] hexStringToBytes(String hexString) {  </br>
+								if (!isExist(hexString)) {  </br>
+									return null;  </br>
+								}  </br>
+								hexString = hexString.toUpperCase();  </br>
+								int length = hexString.length() / 2;  </br>
+								char[] hexChars = hexString.toCharArray();  </br>
+								byte[] d = new byte[length];  </br>
+								for (int i = 0; i < length; i++) {  </br>
+									int pos = i * 2;  </br>
+									d[i] = (byte) (charToByte(hexChars[pos]) << 4 | charToByte(hexChars[pos + 1]));  </br>
+								}  </br>
+								return d;  </br>
+							}</br>
+							
+							private static byte charToByte(char c) {  </br>
+								return (byte) "0123456789ABCDEF".indexOf(c);  </br>
+							}</br>
 						}</br>
 					</p>
 				
