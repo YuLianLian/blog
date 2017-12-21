@@ -1,47 +1,46 @@
 <script>
-	 $.get("datas/articles.json", function(articles){
-        $.each(articles,function(i,article){
-			var articleContentHtml = getArticleContentHtml(article);
-			$("#articles").append(articleContentHtml);
-		});		
-	 });
-	 
-	 function getArticleContentHtml(article){
+
+	 function loadArticleDetail(articleId){
+		$("#articles").load("html/articles/"+articleId+".html");
+	 }
+	 function fnGetArticleContentHtml(article){
 	    var articleContentHtml = '<article class="article-main">'+
-            '<div class="panel panel-default">'+
-			    getArticleHeadHtml(article)+
-				getArticleBodyHtml(article)+
-			'</div>'+
-        '</article>';
+									'<div class="panel panel-default">'+
+										fnGetArticleHeadHtml(article)+
+										'<div class="clear"></div>'+
+										fnGetArticleBodyHtml(article)+
+									'</div>'+
+								'</article>';
 		return articleContentHtml;
 	 }
-	 function getArticleHeadHtml(article){
+	 function fnGetArticleHeadHtml(article){
 		var headHtml =  '<div class="panel-heading head">'+
 							'<div class="meta">'+
 							  '<span class="tooltipped tooltipped-n">'+
-								'<a rel="bookmark" href="javascript:loadArticleDetail("'+article.content+'")">'+article.title+'</a>'+
-							  '</span>'
-							'</div>'
+								'<a rel="bookmark" href="javascript:void(0);" onclick="loadArticleDetail(\''+article.id+'\')">'+article.title+'</a>'+
+							  '</span>'+
+							'</div>'+
 						'</div>';
 		return headHtml;
 	 }
-	 function getArticleBodyHtml(article){
+	 function fnGetArticleBodyHtml(article){
 	    var bodyHtml=  '<div class="panel-body body">'+
-						   getArticleDescribeHtml(article)+
-						   getArticleReadMoreHtml(article)+
+						   fnGetArticleDescribeHtml(article)+
+						   '<div class="clear"></div>'+
+						   fnGetArticleReadMoreHtml(article)+
 						'</div>';
 		return bodyHtml;
 	 }
-	 function getArticleDescribeHtml(article){
+	 function fnGetArticleDescribeHtml(article){
 	    var describeHtml = '<div class="describe">'+
-						  '<p>'+article.describe+'</p>'+
-						'</div>';
+							  '<p>'+article.describe+'</p>'+
+							'</div>';
 		return describeHtml;
 	 }
 	 
-	 function getArticleReadMoreHtml(article){
+	 function fnGetArticleReadMoreHtml(article){
 	    var readMoreHtml = '<div class="read-more">'+
-							  '<a href="javascript:loadArticleDetail("'+article.content+'")">'+
+							  '<a href="javascript:void(0);" onclick="loadArticleDetail(\''+article.id+'\')">'+
 								'<span class="left">阅读更多</span>'+
 								'<span class="read-more-icon"></span>'+
 								'<span class="clear"></span>'+
@@ -52,3 +51,12 @@
 	 
 </script>
 <div id="articles"></div>
+<script>
+     $.get("datas/articles.json", function(datas){
+	    var oArtiscles = JSON.parse(datas);
+        $.each(oArtiscles,function(i,oArticle){
+			var articleContentHtml = fnGetArticleContentHtml(oArticle);
+			$("#articles").append(articleContentHtml);
+		});		
+	 });
+</script>
